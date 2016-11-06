@@ -1,29 +1,50 @@
-# Welcome to Jekyll!
-#
-# This config file is meant for settings that affect your whole blog, values
-# which you are expected to set up once and rarely edit after that. If you find
-# yourself editing these this file very often, consider using Jekyll's data files
-# feature for the data you need to update frequently.
-#
-# For technical reasons, this file is *NOT* reloaded automatically when you use
-# 'jekyll serve'. If you change this file, please restart the server process.
-
 # Site settings
-# These are used to personalize your new site. If you look in the HTML files,
-# you will see them accessed via {{ site.title }}, {{ site.email }}, and so on.
-# You can create any custom variable you would like, and they will be accessible
-# in the templates via {{ site.myvariable }}.
 title: Yet Another Embedded Developper
-email: ithinuel@gmail.com
-description: > # this means to ignore newlines until "baseurl:"
-  Write an awesome description for your new site here. You can edit this
-  line in _config.yml. It will appear in your document head meta (for
-  Google search results) and in your feed.xml site description.
-baseurl: "" # the subpath of your site, e.g. /blog
-url: "http://example.com" # the base hostname & protocol for your site
+description: "A blog about Embedded systems, software and some other stuffs ..."
+baseurl: "" # the subpath of your site
+url: "http://ithinuel.me"
+
+# User settings
+username: ithinuel
+gravatar: https://s.gravatar.com/avatar/9b7e4822b5df521ad7f4aad97bc2f417?s=400
+email: wilfried.chauveau@ithinuel.me
 twitter_username: ithinuel
 github_username:  ithinuel
+gplus_username:  +WilfriedChauveau
+disqus_username: ithinuelme
+linkedin_username: wilfried-chauveau
 
 # Build settings
 markdown: kramdown
-theme: minima
+highlighter: rouge
+permalink: /:title/
+
+# html minify
+compress_html:
+  clippings: all
+  comments: all
+  endings: []
+  profile: false
+
+# Links to include in menu navigation
+links:
+  - title: home
+    url: /
+  - title: my posts
+    url: /posts
+  - title: series
+    url: /series
+  - title: tags
+    url: /tags
+  - title: about me
+    url: /about
+# projects in header index
+projects:
+  - name: mqttsn-packet
+    url: https://github.com/ithinuel/mqttsn-packet
+  - name: elib
+    url: https://github.com/ithinuel/elib
+  - name: silica
+    url: https://github.com/ithinuel/silica
+# exclude my node related stuff
+exclude: ['package.json', 'src', 'node_modules']
