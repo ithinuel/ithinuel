@@ -27,11 +27,12 @@
     if(! $('.search-form').hasClass('active')){
       switch(e.code) {
         case "Space":
-          $('a#slide').trigger('click');
-          $('')
-          break;
         case "Escape":
-          $('#fade').trigger('click');
+          if ($('#fade').hasClass('slide')) {
+            $('#fade').trigger('click');
+          } else {
+            $('a#slide').trigger('click');
+          }
           break;
       }
     }
@@ -64,6 +65,7 @@
           $("#sidebar ul:nth-child(2) li:nth-child(3) a").trigger('click');
           break;
       }
+      return false;
     }
     if($('.search-form').hasClass('active')){
       switch(e.code) {

@@ -16,7 +16,7 @@ a.slideButton, .dosearch
 	width 40px
 	height 40px
 	top 10px
-	z-index 31
+	z-index 1
 .slideButton
 	left 10px
 .dosearch
@@ -78,12 +78,9 @@ aside
 				mainFont(300)
 				color #b3b3b1
 				&:hover
-					background mainHover
+					background darken(blackBase, 40%)
 	&.slide
 		left 0
-
-a.slideButton.slide
-	pointer-events none
 
 .overlay
 	position fixed

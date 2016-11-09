@@ -19,7 +19,7 @@
       {% if link.external %}
         <li><a href="{{ link.url }}">{{ link.title }}</a></li>
       {% else %}
-        <li><span class="counter-menu">{{counter}}</span><svg viewBox="0 0 50 50" class="icon-arrow-menu"><use xlink:href="#icon-right-arrow"></use></svg><a href="{{ site.url }}{{ link.url }}"> {{ link.title }}</a></li>
+        <li><span class="counter-menu">{{counter}}</span><svg viewBox="0 0 50 50" class="icon-arrow-menu"><use xlink:href="#icon-right-arrow"></use></svg><a href="{{ link.url  | prepend: site.baseurl }}">&nbsp;{{ link.title }}&nbsp;</a></li>
       {% endif %}
 
       {% assign counter=counter | plus:1 %}   
