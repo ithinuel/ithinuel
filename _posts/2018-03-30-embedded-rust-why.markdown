@@ -35,17 +35,17 @@ In the next posts I'll talk about the folowwing topics (links will be added as t
 published) :
 
 - Foundations
-  - Framework structure :
+  - Framework structure :   
     How crates & feature gates offers an awesome flexibility to our versatile world.
-  - Ressource management : 
+  - Ressource management :    
     GPIO and other peripherals...
-  - Threadless, Co-operative & Pre-emptive multitasking
+  - Threadless, Co-operative & Pre-emptive multitasking   
     One driver to rule them all !
-  - Exectution context types
-    *main* -- thread -- interrupt
+  - Exectution context types   
+    *main* -- thread -- interrupt   
     Context switching & safety
   - Critical failure handling
-- Framework
+- Framework   
   Cross crate tools -- logging
 
 I know that all this might sound/look pretty abstract. To make this slightly more concrete, I'll
