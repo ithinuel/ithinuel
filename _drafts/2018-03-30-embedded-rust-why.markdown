@@ -20,12 +20,37 @@ However, the deeply embedded world has some additionnal constraints such as :
 - No MMU so no virtual memory space ;
 - Diversity/inconsistency of platforms...
 
-It is also well known that the world is higly unpredictable and if one thing is pretty certain is that the product will fail at some point.
-In that case we often cannot afford  to ask someone (a customer or an agent) to reboot or powercycle the device. 
-We want it bug free or at least able to recover on its own.
-We also want (at least during dev phase) the system to tell us *if/when/why* such a dramatic failure occured.
+It is also well known that the world is higly unpredictable and if one thing is pretty certain is
+that the product will fail at some point. In that case we often cannot afford  to ask someone (a
+customer or an agent) to reboot or powercycle the device. We want it bug free or at least able to
+recover on its own. We also want (at least during dev phase) the system to tell us *if/when/why*
+such a dramatic failure occured.
 
 And as if it wasn't yet too complicated, the industry itself adds its own contrainsts to this soup.
-The "volatility" of devs requires the handover process to be as efficient as possible not to impair the "productivity".
-I mean that while handing over a project, people should focus on the product itself rather than the tools used to *build/generate/deploy/debug/...* it.
+The "volatility" of devs requires the handover process to be as efficient as possible not to impair
+the "productivity". I mean that while handing over a project, people should focus on the product
+itself rather than the tools used to *build/generate/deploy/debug/...* it.
+
+In the next posts I'll talk about the folowwing topics (links will be added as the acticles get
+published) :
+
+- Foundations
+  - Framework structure :
+    How crates & feature gates offers an awesome flexibility to our versatile world.
+  - Ressource management : 
+    GPIO and other peripherals...
+  - Threadless, Co-operative & Pre-emptive multitasking
+    One driver to rule them all !
+  - Exectution context types
+    *main* -- thread -- interrupt
+    Context switching & safety
+  - Critical failure handling
+- Framework
+  Cross crate tools -- logging
+
+I know that all this might sound/look pretty abstract. To make this slightly more concrete, I'll
+use as a demo project an IoT enabled 3D printer (based on my Anet A6 & Flsun 3). I'll start working
+on a Cortex-M based motherboard as AVR are not yet supported in mainstream rust compiler. However,
+as I want this framework cross platform, the same application code will have to run on all target
+seemlessly.
 
