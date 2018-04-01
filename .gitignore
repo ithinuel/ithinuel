@@ -2,4 +2,5 @@ _site
 .sass-cache
 node_modules
 tags
+.jekyll-metadata
 # _drafts
