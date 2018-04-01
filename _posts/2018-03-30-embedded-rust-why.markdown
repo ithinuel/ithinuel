@@ -2,7 +2,7 @@
 layout: post
 title:  "Embedded Rust : Why ?"
 date:   2018-03-30 09:26:00 +0100
-categories: rust draft
+categories: rust embedded-dev
 ---
 I will try to publish here a serie of articles about my approach to embedded development and how I plan to achieve that in Rust.
 Embedded system development is not so far from regular application developpement in that we want it :
