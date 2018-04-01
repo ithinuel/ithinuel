@@ -1,3 +1,5 @@
+post_width = 1000px
+
 .post
     +above(rem(1450px))
         margin-left: 347px
@@ -24,12 +26,13 @@
         text-align center
 .post-content
     padding rem(16px) 0
+    text-align justify
     img
         max-width 100%
         margin rem(30px) auto
         display block
     p, h1, h2, h3, h4,ul,ol, .tags, iframe
-        max-width rem(800px)
+        max-width rem(post_width)
         padding 0 rem(20px)
         margin 0 auto rem(30px)
         mainFont(300)
@@ -101,7 +104,7 @@
     .about_perfil
         width 200px
 .share
-    center(800px)
+    center(post_width)
     text-align center
     border-top 1px solid lightGray
     padding-top rem(20px)
@@ -126,7 +129,7 @@ table
     mainFont(300)
     font-size rem(36px)
     margin-top rem(60px)
-    center(rem(800px))
+    center(rem(post_width))
     +below(cut)
         font-size rem(28px)
         margin-top rem(20px)
