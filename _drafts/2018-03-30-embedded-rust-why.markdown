@@ -14,7 +14,7 @@ Embedded system development is not so far from regular application developpement
 However, the deeply embedded world has some additionnal constraints such as :
 - Memory Size *(only few KiB)*;
 - core frequency ; *(240MHz is the fastests MCU I've played with so far)* 
-- core ISA ; *(vectorized double precision float computation is not available on all MCU Ö )*
+- core ISA ; *(vectorized double precision float computation is not available on all MCU 😲)*
 - Single core ; *(There are some multicore MCU but they're clearly a drop in the ocean)*
 - no OS such Android/Linux/iOS/Windows ; *(a curse & a bless at the same time)*
 - No MMU so no virtual memory space ;
