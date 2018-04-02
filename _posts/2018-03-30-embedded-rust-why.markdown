@@ -37,7 +37,7 @@ published) :
 
 - Foundations
   - Framework structure :   
-    How crates & feature gates offers an awesome flexibility to our versatile world.
+    Crates & feature gates to the rescue...
   - Ressource management :    
     GPIO and other peripherals...
   - Threadless, Co-operative & Pre-emptive multitasking   
