@@ -36,17 +36,17 @@ In the next posts I'll talk about the following topics (links will be added as t
 published) :
 
 - Foundations
-  - Framework structure :   
+  - Framework structure :  
     Crates & feature gates to the rescue...
-  - Resource management :    
+  - Resource management :  
     GPIO and other peripherals...
-  - Threadless, Co-operative & Pre-emptive multitasking   
+  - Threadless, Co-operative & Pre-emptive multitasking  
     One driver to rule them all !
-  - Execution context types   
-    *main* -- thread -- interrupt   
+  - Execution context types  
+    *main* -- thread -- interrupt  
     Context switching & safety
   - Critical failure handling
-- Framework   
+- Framework  
   Cross crate tools -- logging
 
 I know that all this might sound/look pretty abstract. To make this slightly more concrete, I'll
