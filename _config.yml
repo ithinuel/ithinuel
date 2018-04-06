@@ -19,6 +19,9 @@ markdown: kramdown
 highlighter: rouge
 permalink: /:title/
 
+kramdown:
+  auto_ids: true # Auto-generate ID's for headings
+
 # html minify
 compress_html:
   clippings: all

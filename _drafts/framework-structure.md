@@ -4,25 +4,25 @@ title:  "Framework structure : Crates & feature gates to the rescue..."
 categories: embedded-rust
 tags: rust embedded-dev
 ---
-There are already some rust for embedded projects such as [tock-os](https://www.tockos.org) or [zync-rs](https://zinc.rs/). They all (AFAIK) took the path to a monolithic API in that sense that everything is provided as a single (potentially) heavy crate where all ports and their drivers are provided in the same crate.
+There are already some embedded rust projects such as [tock-os](https://www.tockos.org) or [zync-rs](https://zinc.rs/). They all (AFAIK) took the path to a monolithic API in that sense that everything is provided as a single (potentially) heavy crate where all ports and their drivers are provided in the same crate.
 
-This can look appealing *a single dependency to all your projects*, but it has down sides that (*IMHO*) are making it unworthy. It greatly impairs maintainability & slows down the release pace. Because the crates are heavy (in features/targets) :
-- Updating a driver for a target requires a patch bump for the whole crate where a user may not even use this target.
+*A single dependency to all your projects* can look appealing, but it has downsides that (*IMHO*) are making it unworthy. It greatly impairs maintainability and slows down the release pace because it makes the crate heavier (in features/targets) :
+- Updating a driver for a single target/family requires a patch bump for the whole framework ;
 - Keeping things consistent when changing an API requires you to update **ALL** drivers which can be a rather tedious task when supporting a wide range or targets.
-- It is too easy to intricate modules' dependencies and it goes against the [*KISS*](https://en.wikipedia.org/wiki/KISS_principle) principle.
+- It is way too easy to intricate modules' dependencies and end up with a tight knot of internal relations between modules. It goes against the [*KISS principle*](https://en.wikipedia.org/wiki/KISS_principle).
 
-**Decoupling**
+## Decoupling
 
-Splitting the framework in a "galaxy" of light weight crates allows adoption of updates of the main APIs to be realised in some sort of a *waterfall* kind of way. A team responsible of maintaining a certain set of target can use the semantic versioning to only update their release when they are ready. It adds latency between the main API & the target implementation updates but it prevents :
-- highly demanded features to be stuck while a all team do implement it ;
-- rotting abandoned targets in the main crates.
+Splitting the framework in a *"galaxy"* of light weight crates allows adoption of updates of the main APIs to be propagated in some sort of *waterfall* kind of way. A team responsible of maintaining a certain set of target can use the semantic versioning to only update their release when they are ready. It adds latency between the main API & the target implementation updates but it prevents :
+- highly demanded features to be stuck until all team do implement it ;
+- code rot of abandoned targets in the framework crates.
 
 This would also help :
-- enforcing a mindful design of APIs & keep them clear between crates ;
+- enforcing a mindful design of APIs and keep them clear between crates ;
 - benefit from the semantic versioning of APIs ;
-- organise communities around focus groups that wouldn't be limited by slow/less active groups...
+- organise communities around focus groups that wouldn't be limited by slower/less active groups...
 
-This diagram is here to give you a rough idea of what could be achieved. This could of course be extended by more crates dedicated to others tasks such has file system drivers, motor/sensor control (loops?)...
+This diagram is here to give you a rough idea of what could be achieved. This would of course be extended by more crates dedicated to others tasks such has file system drivers, motor/sensor control (loops?)...
 
 {% comment %}
 package silica_linux {}
@@ -89,7 +89,7 @@ silica_arduino_mega2560 <.. silica_demo_blinky
 
 Note that the *generic crates* such as `silica_core_sync` which provides common synchronisation primitives (Mutexes/Semaphores/critical sections) will call `extern "Rust"` functions that will have to be implemented by other crates such as `silica_atmel_mega` or `silica_cortexm`.
 
-**Features**
+## Features
 
 *Features* could then be used to select a specific implementation of a given feature.  
 The most obvious one that comes to my mind is a bootloader application requiring that *'no-os'* is provided to keep things as small as possible, implementing the simplest synchronisation primitives possible knowing that it's allowed to disabled all interrupts for an unknown amount of time. While another app would require a full featured *'RTOS'* with *os aware* primitives that would put a task asleep and trigger a context switch while waiting. They would both depend on the same *target* crate (e.g. `silica_arduino_mega2560`) but with slightly different implementations.

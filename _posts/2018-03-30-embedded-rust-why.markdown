@@ -5,6 +5,15 @@ date:   2018-03-30 09:26:00 +0100
 categories: embedded-rust
 tags: rust embedded-dev
 ---
+
+*Foreword:* I assume in this series that you are :
+- a bit familiar with rust-lang terminology (e.g. you know what a crate or a trait is) ;
+- familiar with embedded system design & embedded software development.
+
+If you want to learn more about [rust](rust-lang.org), I encourage you to read [The Book](https://doc.rust-lang.org/book/first-edition/). You can find all the documentation you need on the [rust-lang documentation page](https://doc.rust-lang.org/).
+
+---
+
 I will try to publish here a series of articles about my approach to embedded development and how I plan to achieve that in Rust.
 Embedded system development is not so far from regular application development in that we want it :
 - Secure *(no secret leakage)* ;
