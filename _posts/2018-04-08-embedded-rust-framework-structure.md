@@ -4,6 +4,7 @@ title:  "Embedded Rust : Framework structure"
 categories: embedded-rust
 tags: rust embedded-dev
 date: 2018-04-08 15:12:00 +0100
+series: "Embedded Rust"
 ---
 There are already some embedded rust projects such as [tock-os](https://www.tockos.org) or [zync-rs](https://zinc.rs/). They all (AFAIK) took the path to a monolithic API in that sense that everything is provided as a single (potentially) heavy crate where all ports and their drivers are provided in the same crate.
 
