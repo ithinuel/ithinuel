@@ -45,7 +45,7 @@ In the next posts I'll talk about the following topics (links will be added as t
 published) :
 
 - Foundations
-  - Framework structure :  
+  - [Framework structure]({{ "/embedded-rust-framework-structure" | absolute_path }}) :  
     Crates & feature gates to the rescue...
   - Resource management :  
     GPIO and other peripherals...
