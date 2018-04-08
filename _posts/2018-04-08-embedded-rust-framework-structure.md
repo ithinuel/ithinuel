@@ -1,8 +1,9 @@
 ---
 layout: post
-title:  "Framework structure : Crates & feature gates to the rescue..."
+title:  "Embedded Rust : Framework structure"
 categories: embedded-rust
 tags: rust embedded-dev
+date: 2018-04-08 15:12:00 +0100
 ---
 There are already some embedded rust projects such as [tock-os](https://www.tockos.org) or [zync-rs](https://zinc.rs/). They all (AFAIK) took the path to a monolithic API in that sense that everything is provided as a single (potentially) heavy crate where all ports and their drivers are provided in the same crate.
 
@@ -91,6 +92,7 @@ Note that the *generic crates* such as `silica_core_sync` which provides common 
 
 ## Features
 
-*Features* could then be used to select a specific implementation of a given feature.  
-The most obvious one that comes to my mind is a bootloader application requiring that *'no-os'* is provided to keep things as small as possible, implementing the simplest synchronisation primitives possible knowing that it's allowed to disabled all interrupts for an unknown amount of time. While another app would require a full featured *'RTOS'* with *os aware* primitives that would put a task asleep and trigger a context switch while waiting. They would both depend on the same *target* crate (e.g. `silica_arduino_mega2560`) but with slightly different implementations.
+Rust's *Features* are a nice & clean replacement for what used to be done with `#define` in **C**.  
+They could be used to select a specific implementation of a given feature.  
+The most obvious use case that comes to my mind is a bootloader application requiring that *'no-os'* is provided to get the smallest footprint possible while another app would require a full featured *'RTOS'* with system calls, *os aware* synchronisation primitive implementations primitives. Both apps would depend on the same *target* crate (e.g. `silica_arduino_mega2560`) but with slightly different implementations.
 
