@@ -5,12 +5,13 @@ categories: embedded-rust
 tags: rust embedded-dev
 date: 2018-04-08 15:12:00 +0100
 series: "Embedded Rust"
+image: /assets/img/rust-logo-256x256.png
 ---
 There are already some embedded rust projects such as [tock-os](https://www.tockos.org) or [zync-rs](https://zinc.rs/). They all (AFAIK) took the path to a monolithic API in that sense that everything is provided as a single (potentially) heavy crate where all ports and their drivers are provided in the same crate.
 
 *A single dependency to all your projects* can look appealing, but it has downsides that (*IMHO*) are making it unworthy. It greatly impairs maintainability and slows down the release pace because it makes the crate heavier (in features/targets) :
 - Updating a driver for a single target/family requires a patch bump for the whole framework ;
-- Keeping things consistent when changing an API requires you to update **ALL** drivers which can be a rather tedious task when supporting a wide range or targets.
+- Keeping things consistent when changing an API requires you to update **ALL** drivers which can be a rather tedious task when supporting a wide range or targets ;
 - It is way too easy to intricate modules' dependencies and end up with a tight knot of internal relations between modules. It goes against the [*KISS principle*](https://en.wikipedia.org/wiki/KISS_principle).
 
 ## Decoupling
