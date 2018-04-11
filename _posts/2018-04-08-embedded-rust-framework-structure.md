@@ -95,10 +95,10 @@ For example here is how things could be spread :
   Defines generic traits that exposes features for common resources such as UART, SPI, I²C, ADC, DAC, CAN, Timers...
   It also reexport modules from other *core* crates (such as synchronization primitives etc) ;
 - `silica_core_sync` :  
-  Provides generic implementations for Mutexes, Semaphores and critical sections. It expects (at least) two extern functions to be defined : `fn critical_section_enter()` and `fn critical_section_enter()` ;
+  Provides generic implementations for Mutexes, Semaphores and critical sections. It expects (at least) two external functions to be defined : `fn critical_section_enter()` and `fn critical_section_enter()` ;
 - `silica_cortexm` (mcu core level) :  
-  Implements Mutexes, Semaphores & critical section internals.  
-  This is also where is implemented all the os mecanisms are because they are generic to all cortex cores ;
+  Implements Mutexes, Semaphores & critical sections' internals.  
+  This is also where is implemented all the os mechanisms are because they are generic to all cortex cores ;
 - `silica_cortexm_4` :  
   Implements extra traits that cover cases that can be handled/accelerated by hardware specific features ;
 - `silica_atsam4e` (chip level) :  
@@ -119,5 +119,5 @@ The most obvious use case that comes to my mind is a bootloader application requ
 ---
 
 [^1]:
-    [`silica-rs`](http://github.com/silica-rs) is something I initiated few years ago. It is inspired by something I realized with Makefiles & C in my first company. I wanted a framework that is target, os, ip stack [...] agnostic.  
+    [`silica-rs`](http://github.com/silica-rs) is something I initiated few years ago. It is inspired by something I realized with Makefiles & C in my first company. I wanted a framework that is target, os, ip stack [...] agnostic.
 
