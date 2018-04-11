@@ -5,6 +5,7 @@ date:   2018-03-30 09:26:00 +0100
 series: "Embedded Rust"
 categories: embedded-rust
 tags: rust embedded-rust
+image: /assets/img/rust-logo-256x256.png
 ---
 
 *Foreword:* I assume in this series that you are :
