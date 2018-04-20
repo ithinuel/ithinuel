@@ -1,0 +1,73 @@
+---
+layout: none
+permalink: .well-known/keybase.txt
+---
+==================================================================
+https://keybase.io/ithinuel
+--------------------------------------------------------------------
+
+I hereby claim:
+
+  * I am an admin of http://ithinuel.me
+  * I am ithinuel (https://keybase.io/ithinuel) on keybase.
+  * I have a public key with fingerprint 26FF 331A BE4F 8DEA CFC7  E262 BB53 3DB5 7C5A E605
+
+To do so, I am signing this object:
+
+{
+  "body": {
+    "key": {
+      "eldest_kid": "0101819c50ea572dad4b9513736c352fd3ea2712ad3933c45442ac7fa69e7744770c0a",
+      "fingerprint": "26ff331abe4f8deacfc7e262bb533db57c5ae605",
+      "host": "keybase.io",
+      "key_id": "bb533db57c5ae605",
+      "kid": "0101819c50ea572dad4b9513736c352fd3ea2712ad3933c45442ac7fa69e7744770c0a",
+      "uid": "2a137b2976319c3e6cfc5a6353fda819",
+      "username": "ithinuel"
+    },
+    "service": {
+      "hostname": "ithinuel.me",
+      "protocol": "http:"
+    },
+    "type": "web_service_binding",
+    "version": 1
+  },
+  "ctime": 1524225784,
+  "expire_in": 157680000,
+  "prev": "dcf3b94851ccd973cd31912e16e17944e9e6b1825820e21a003cc546e7e47fcb",
+  "seqno": 10,
+  "tag": "signature"
+}
+
+which yields the signature:
+
+-----BEGIN PGP MESSAGE-----
+Version: Keybase OpenPGP v2.0.76
+Comment: https://keybase.io/crypto
+
+yMIlAnicrZJdSBRRFMd3K42WBI0oKxGaekhbYubeuXN3thI1xYeMUoJyM7c7d+7s
+DunstjuuXymRUlJIHw9a2kNm9CBUGEIPRZQVFlpQWSgRfTyEllAZYh8PdkfqJXrs
+vlzOuf//75xzOfdS5rs87vetd2H/28fF7qE77dWuwNiLbw2CFtHrBH+DsJ/NXaxS
+Z3E7uN/UBb8gSqLkk1SKREYQBjrRZU1FEsRQoRABQ4eMACwBokMVQiojWQaEYoMo
+KsNYljEWqUgEr2CYVojFojHTsjkWKIYBoUQ0Jhs+nRFqUMyAAjQNQahrCFNEmCIi
+bgxH4o6DN6eRONtgRniOB8G59v6h/899V8/hAOFWDahYgRwKmcIbRkSBCBo64XUc
+YZzFLFLFuNq0w6ZVzSqFRq/AswmTMudjnUn+UmzgkVeIxiJ2hEYq+UPYtqN+x2fX
+RR1hDdOCvxFBzbR0/ovckGCxuBmxBL/EldQ2HaaEgAwAwj7ZK7DaqBljQdNRIKz4
+RH6cMizBkTo1oKbKPiRRqqsYUp3PJAEmKUzCqiwzlSma5APIB0QGJCKKkFIkKwwz
+GRtUE5yhDlgRzuZQm4Q4M26GLGJXx5jQOHC7fIHL7XElJ81z1svlWZT6Z+nGZxbO
+7t2Zk9MbXfljn5atsaL63LROX8DdfW3N9+HT3g/vyioq0kfTzck9ZztWhjLtgpZz
+T9c2tz4Ba8KDF9fnJ+XCI8lZSs+nwqRt7T/EicHpGy+X7vH8LM8q7Ot5jU5UbEp0
+5l2tel2yeKrtZnnJ/WOBjhapZWTLJXcpjjVlnul+eH2ieHrH8KU3z6SJtrR1MO9Q
+5caLs0O7M+y3h3uXP6qfLbM7jrZ4b+Xrn8fP1yUeFCxzoctbmxcG0g3YNbJqdOzL
+2AXPq6LRrBWk7/nU4r4lXzcn2zNdqwfzyt73l24v9p+qmfLXZhzPHq9vuJLS0dR8
+8uOtg8eTGwYGdwVTn0+GumorfgEMKUFm
+=Rd55
+-----END PGP MESSAGE-----
+
+And finally, I am proving ownership of this host by posting or
+appending to this document.
+
+View my publicly-auditable identity here: https://keybase.io/ithinuel
+
+==================================================================
+
