@@ -1,6 +1,6 @@
 ---
 layout: post
-title:  "Embedded Rust : Framework structure"
+title: "Embedded Rust : Framework structure"
 categories: embedded-rust
 tags: rust embedded-dev
 date: 2018-04-08 15:12:00 +0100
