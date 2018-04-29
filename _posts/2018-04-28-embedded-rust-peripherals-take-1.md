@@ -101,10 +101,10 @@ impl BitRange<u8> for AIRCRegister {
 
 This is very nice as it covers all the thing we need to start working rather safely with a target, but there are still few *issues* that I would like to address :
 - It allows anyone to mess with the bitfield by directly invoking the methods from `BitRange`.
-- It exposes the inner type and allows any body to access the inner value directly.
-- A type can only implement one bitordering. We'd then need to declare a register twice if we, for example, want to decode/encode a rx/tx register and change it's bitordering on the fly.
-- There is no support for endianness. Imagine an FPGA mixing endianness between its core and its peripherals IP.
-- A bitfield based on a slice is actually a generic *newtype* that can accept any inner type. Using the register type with an invalid inner type would be silent at compile time until someone actually tries to use a bitfield from this instance.
+- It exposes the inner type and allows anybody to access the inner value directly.
+- A type can only implement one bitordering. We need to declare a register twice if we want, for example, to decode/encode a rx/tx register and change it's bitordering on the fly. That means having two references pointing at the same time to the same location but with different types.
+- There is no support for variable endianness. For example in a FPGA that have peripherals with different endianness.
+- A bitfield based on a slice is actually a generic *newtype* that can accept any inner type. Using the *newtype* with an invalid inner type would be silent at compile time until someone actually tries to use a bitfield from this instance.
 - A bitfield based on a slice actually implements `BitRange` for any type that implements `AsRef<T> + AsMut<T>`. This prevents from implementing BitRange for some primitive types such as `u32` or `u16` that doesn't yet implement `AsRef<u8>` and/or `AsMut<u8>` but might in the future.
 
 In the "**take - 2**", I will detail what I came out with and how it answers these concerns.
