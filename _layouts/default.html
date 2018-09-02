@@ -3,14 +3,17 @@ layout: compress
 ---
 
 <!DOCTYPE html>
-<html lang="pt-br">
+<html>
     {% include head.html %}
-    <body>
+    <body class="default">
         {% include svg-icons.html %}
-        {% include header-default.html %}
-            <section class="content">
-                {{ content }}
-            </section>
+        <header class="header-site" role="banner">
+            {% include header.html %}
+        </header>
+        {% include menu.html %}
+        <section class="content">
+            {{ content }}
+        </section>
         {% include scripts.html %}
     </body>
 </html>

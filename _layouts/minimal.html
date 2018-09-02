@@ -3,14 +3,15 @@ layout: compress
 ---
 
 <!DOCTYPE html>
-<html lang="pt-br">
+<html>
     {% include head.html %}
-    <body>
+    <body class="post">
         {% include svg-icons.html %}
-        {% include header-post.html %}
-        {% include tree-posts.html %}
+        <header class="header-post" role="banner">
+            {% include header.html %}
+        </header>
+        {% include menu.html %}
         <section class="post" itemscope itemtype="http://schema.org/WebPage">
-
             <article role="article" id="scroll" class="post-content" role="main" itemprop="mainContentOfPage">
                 {{ content }}
             </article>

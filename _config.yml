@@ -9,6 +9,7 @@ username: ithinuel
 gravatar: https://s.gravatar.com/avatar/9b7e4822b5df521ad7f4aad97bc2f417?s=512
 email: wilfried.chauveau@ithinuel.me
 twitter_username: ithinuel
+keybase_username: ithinuel
 github_username: ithinuel
 gplus_username: +WilfriedChauveau
 disqus_username: ithinuelme
@@ -33,21 +34,23 @@ compress_html:
 links:
   - title: home
     url: /
-  - title: my posts
-    url: /posts
   - title: series
     url: /series
   - title: tags
     url: /tags
-  - title: about me
-    url: /about
+
 # projects in header index
 projects:
+  - name: rusty-printer
+    url: https://github.com/ithinuel/rusty-printer
   - name: mqttsn-packet
     url: https://github.com/ithinuel/mqttsn-packet
+  - name: mbed-os
+    url: https://github.com/armmbed/mbed-os
   - name: elib
     url: https://github.com/ithinuel/elib
   - name: silica
     url: https://github.com/ithinuel/silica
+
 # exclude my node related stuff
 exclude: ['package.json', 'src', 'node_modules']
