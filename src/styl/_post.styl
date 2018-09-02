@@ -1,8 +1,6 @@
-post_width = 1000px
+post_width = content_width
 
-.post
-    +above(rem(1450px))
-        margin-left: 347px
+section.post
     h1, h2, h3
         &:before
             color main
@@ -24,6 +22,7 @@ post_width = 1000px
         mainFont(300)
     .music-read
         text-align center
+
 .post-content
     padding rem(16px) 0
     text-align justify
@@ -44,7 +43,7 @@ post_width = 1000px
     p,li
         color texts
         code
-            color colorcode
+            color black 
     a
         mainFont(300)
         color main
@@ -153,3 +152,11 @@ table
         float right
         +below(cut)
             display none
+
+.comments
+    center(rem(800px))
+    padding 0 rem(20px)
+    h3
+        margin 0 0 rem(30px)
+        font-size rem(30px)
+

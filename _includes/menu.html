@@ -1,0 +1,55 @@
+<aside id="sidebar">
+    <nav id="navigation" class="content">
+        <div class="person">
+            <img src="{{site.gravatar}}" alt="{{site.username}}">
+        </div>
+        <h1>
+            <span class="site-title">[{{site.username}}]</span>
+        </h1>
+        <div class="icons-home">
+            <a aria-label="Send email" href="mailto:{{site.email}}"><svg class="icon icon-email"><use xlink:href="#icon-email"></use></svg></a>
+            <a aria-label="My Twitter" target="_blank" href="https://twitter.com/{{site.twitter_username}}"><svg class="icon icon-twitter"><use xlink:href="#icon-twitter"></use></svg></a>
+            <!-- <a aria-label="My Google Plus" target="_blank" href="https://plus.google.com/{{site.gplus_username}}/posts"><svg class="icon icon-google-plus"><use xlink:href="#icon-google-plus"></use></svg></a> -->
+            <a aria-label="My Linkedin" target="_blank" href="https://linkedin.com/in/{{site.linkedin_username}}"><svg class="icon icon-linkedin"><use xlink:href="#icon-linkedin"></use></svg></a>
+            <a aria-label="My Github" target="_blank" href="https://github.com/{{site.github_username}}"><svg class="icon icon-github-alt"><use xlink:href="#icon-github-alt"></use></svg></a>
+            <a aria-label="I am on Keybase.io" target="_blank" href="https://keybase.io/{{site.keybase_username}}"><svg class="icon icon-keybase"><use xlink:href="#icon-keybase"></use></svg></a>
+            <a aria-label="Use the RSS to get updated" target="_blank" href="{{ "/feed.xml" | prepend: site.baseurl }}"><svg class="icon icon-rss"><use xlink:href="#icon-rss"></use></svg></a>
+        </div>
+        <p>Navigation :</p>
+        <ul>
+            {% assign counter=1 %}
+            {% for link in site.links %}
+
+            {% if link.external %}
+            <li><a href="{{ link.url }}">{{ link.title }}</a></li>
+            {% else %}
+            <li><span class="counter-menu">{{counter}}</span><svg viewBox="0 0 50 50" class="icon-arrow-menu"><use xlink:href="#icon-right-arrow"></use></svg><a href="{{ link.url  | prepend: site.baseurl }}">&nbsp;{{ link.title }}&nbsp;</a></li>
+            {% endif %}
+
+            {% assign counter=counter | plus:1 %}   
+            {% endfor %}
+        </ul>
+        <p>Recent posts :</p>
+        <ul>
+            {% for post in site.posts limit:5 %}
+            <li>
+                <span class="counter-menu">{{counter}}</span>
+                <svg viewBox="0 0 50 50" class="icon-arrow-menu">
+                    <use xlink:href="#icon-right-arrow"></use>
+                </svg>
+                <a class="tooltip" href="{{ post.url  | prepend: site.baseurl }}">
+                    &nbsp;{{ post.title }}&nbsp;
+                </a>
+            </li>
+            {% assign counter=counter | plus:1 %}   
+            {% endfor %}
+        </ul>
+        <p>See also :</p>
+        <ul>
+            <li><span class="counter-menu">k</span><svg viewBox="0 0 50 50" class="icon-arrow-menu"><use xlink:href="#icon-right-arrow"></use></svg><a id="keybase" target="_blank" href="http://keybase.io/{{site.keybase_username}}">keybase</a></li>
+            <li><span class="counter-menu">g</span><svg viewBox="0 0 50 50" class="icon-arrow-menu"><use xlink:href="#icon-right-arrow"></use></svg><a id="github" target="_blank" href="http://github.com/{{site.github_username}}">github</a></li>
+            <li><span class="counter-menu">s</span><svg viewBox="0 0 50 50" class="icon-arrow-menu"><use xlink:href="#icon-right-arrow"></use></svg><a id="menu-search">search</a></li>
+            <li><span class="counter-menu">t</span><svg viewBox="0 0 50 50" class="icon-arrow-menu"><use xlink:href="#icon-right-arrow"></use></svg><a id="twitter" target="_blank" href="http://twitter.com/{{site.twitter_username}}">twitter</a></li>
+        </ul>
+    </nav>
+</aside>
