@@ -18,17 +18,17 @@
   "author": "Victor Igor",
   "license": "ISC",
   "devDependencies": {
-    "browser-sync": "^2.24.7",
-    "grunt": "^1.0.3",
+    "autoprefixer-stylus": "^0.4.0",
+    "browser-sync": "^2.26.7",
+    "grunt": "^1.0.4",
     "gulp": "^4.0",
     "gulp-concat": "^2.4.3",
-    "gulp-imagemin": "^4.1.0",
+    "gulp-imagemin": "^6.1.0",
     "gulp-plumber": "^0.6.6",
     "gulp-stylus": "^2.7.0",
     "gulp-uglify": "^1.0.2",
     "jeet": "^6.1.4",
     "kouto-swiss": "^1.1.0",
-    "autoprefixer-stylus": "^0.4.0",
     "rupture": "^0.6.1"
   },
   "dependencies": {
