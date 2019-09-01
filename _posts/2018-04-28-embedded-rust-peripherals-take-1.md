@@ -1,19 +1,19 @@
 ---
 layout: post
-title: "Embedded Rust : Peripherals (and low-level stuffs) - take 1"
+title: "Embedded Rust: peripherals (and low-level stuff) - take 1"
 categories: embedded-rust
 tags: rust embedded-dev
 date: 2018-04-28 01:00:00 +0100
 series: "Embedded Rust"
 image: /assets/img/rust-logo-256x256.png
 ---
-First of all, *low level stuffs* such as peripheral drivers should be hidden from the application developer. He should not be able to access directly the registers and mess with the peripheral states/control. The wrong flag in the wrong register can lead to dramatic failures and even damages to the products.
+First of all, *low level stuff*, such as peripheral drivers, should be hidden from the application developer. He or she should not be able to access directly the registers and mess with the peripheral states or control. The wrong flag in the wrong register can lead to dramatic failures and even damages to the products.
 
-Accesses to peripheral registers are also special in that they should not optimised out byte the compiler when accessed in loops. This is done in C by using the `volatile` qualifier and in rust via `pub unsafe fn core::ptr::read_volatile<T>(src: *const T) -> T` and `pub unsafe fn core::ptr::write_volatile<T>(dst: *mut T, src: T)`. To make it easier to use we can wrap these two calls in a generic *newtype* `VolatileCell<T>`.  Registers will be declared using global `Unique<T>` and thus not be movable. The reference can still be cloned but we can't really prevent that as anybody can still create an unsafe pointer to any location.
+Accesses to peripheral registers are also special in that they should not optimized out by the compiler when accessed in loops. This is done in C by using the `volatile` qualifier and in Rust through `pub unsafe fn core::ptr::read_volatile<T>(src: *const T) -> T` and `pub unsafe fn core::ptr::write_volatile<T>(dst: *mut T, src: T)`. To make it easier to use we can wrap these two calls in a generic *newtype* `VolatileCell<T>`.  Registers will be declared using global `Unique<T>` and thus not be movable. The reference can still be cloned but we can't really prevent that as anybody can still create an unsafe pointer to any location.
 
-Rust doesn't provide any way (at the time writing) to declare and represent a non-byte-aligned type. So it is not possible to describe in a structure a register such as the [Application Interrupt and Reset Control Register](http://infocenter.arm.com/help/index.jsp?topic=/com.arm.doc.dui0553a/CIHFDJCA.html) from the ARM Cortex-M4 System Control Block the way we would do in C.
+Rust doesn't provide any way (at the time of writing) to declare and represent a non-byte-aligned type. So it is not possible to describe in a structure a register such as the [Application Interrupt and Reset Control Register](http://infocenter.arm.com/help/index.jsp?topic=/com.arm.doc.dui0553a/CIHFDJCA.html) from the ARM Cortex-M4 System Control Block the way we would in C.
 
-Luckily @dzamlo has made a very good [`rust-bitfield`](https://github.com/dzamlo/rust-bitfield) crate for that purpose. Amongst the use cases that `rust-bitfield` covers, the one that fits the most our need is this one :
+Luckily @dzamlo has made a very good [`rust-bitfield`](https://github.com/dzamlo/rust-bitfield) crate for that purpose. Among the use cases that `rust-bitfield` covers, the one that fits the most our need is this one:
 
 ```rust
 #[macro_use]
@@ -28,15 +28,15 @@ bitfield! {
 }
 ```
 
-This creates a *newtype* that implements few accessor methods that in turn fall back to implementations of the `Bit` and `BitRange` traits on this *newtype*. This is very nice and simple to use.
+This creates a *newtype* that implement few accessor methods that in turn fall back to implementations of the `Bit` and `BitRange` traits on this *newtype*. This is very nice and simple to use.
 
-The crates implements the `Bit` trait for any type that implements `BitRange<u8>` and provides two implementations of `BitRange`. The first one accesses a field in an integer by shifting/masking and the second accesses a field from an array by looping and extracting each bit one by one.
+The crate implements the `Bit` trait for any type that implements `BitRange<u8>` and provides two implementations of `BitRange`. The first one accesses a field in an integer by shifting and masking, and the second accesses a field from an array by looping and extracting each bit one by one.
 
-In our use case we would need :
-- the bit field to extract information from a `VolatileCell` ;
-- to implement in some cases a set of accessors specific to a register (for example protected with a write key).
+In our use case we would need:
+- The bit field to extract information from a `VolatileCell`;
+- To implement in some cases a set of accessors specific to a register (for example protected with a write key).
 
-In order to fulfil our first requirement, we would only need to implement `BitRange<T>` including `BitRange<u8>` for `VolatileCell<U>` as the `bitfield!` macro will automatically implement `BitRange` for us and use the inner type's implement of `BitRange`.
+In order to fulfil our first requirement, we would only need to implement `BitRange<T>`, including `BitRange<u8>` for `VolatileCell<U>`, because the `bitfield!` macro will automatically implement `BitRange` for us and use the inner type's implement of `BitRange`.
 
 ```rust
 macro_rules! impl_bitrange_for_vc_tu {
@@ -69,7 +69,7 @@ impl_bitrange_for_vc_tu!(u16, u32);
 impl_bitrange_for_vc_tu!(u32, u32);
 ```
 
-However for the second requirement, we need to opt-out from the default implementation provided by the `bitfield!` macro and implement `BitRange` by ourselves.
+However, for the second requirement, we need to opt out from the default implementation the `bitfield!` macro provides and implement `BitRange` by ourselves.
 ```rust
 bitfield! {
   /// Application Interrupt and Reset Control Register
@@ -99,11 +99,11 @@ impl BitRange<u8> for AIRCRegister {
 }
 ```
 
-This is very nice as it covers all the thing we need to start working rather safely with a target, but there are still few *issues* that I would like to address :
+This is very nice because it covers all the things we need to start working rather safely with a target, but there are still few *issues* that I would like to address:
 - It allows anyone to mess with the bitfield by directly invoking the methods from `BitRange`.
 - It exposes the inner type and allows anybody to access the inner value directly.
-- A type can only implement one bitordering. We need to declare a register twice if we want, for example, to decode/encode a rx/tx register and change it's bitordering on the fly. That means having two references pointing at the same time to the same location but with different types.
-- There is no support for variable endianness. For example in a FPGA that have peripherals with different endianness.
+- A type can only implement one bitordering. We need to declare a register twice if we want, for example, to decode an Rx or encode a Tx register and change its bitordering on the fly. That means having two references pointing at the same time to the same location but with different types.
+- There is no support for variable endianness, for example, in an FPGA that has peripherals with different endianness.
 - A bitfield based on a slice is actually a generic *newtype* that can accept any inner type. Using the *newtype* with an invalid inner type would be silent at compile time until someone actually tries to use a bitfield from this instance.
 
-In the "**take - 2**", I will detail what I came out with and how it answers these concerns.
+In the "**take - 2**", I will detail what I came up with and how it answers these concerns.

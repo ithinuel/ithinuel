@@ -1,14 +1,13 @@
 ---
 layout: post
-title: "Brewing your own rust toolchain"
+title: "Brewing your own Rust toolchain"
 categories: rust
 tags: rust toolchain
 image: /assets/img/rust-logo-256x256.png
 date:   2018-05-15 23:14:00 +0100
 ---
-
-Assuming you already have rustup with a (stable/beta) toolchain installed.
-The following list of shell commands will get you a fresh homebrewed rust toolchain.
+Assuming you already have rustup with a (stable or beta) toolchain installed, the
+following list of shell commands will get you a fresh homebrewed Rust toolchain.
 
 ```sh
 git clone git@github.com:rust-lang/rust.git
@@ -32,4 +31,4 @@ for f in $(ls rust-std*.tar.xz); do tar xf $f; done
 for d in $(ls -d rust-std*/); do pushd $d; ./install.sh --prefix=$HOME/.local; popd; done
 ```
 
-You can even `rustup default myrust` if you dare !
+You can even `rustup default myrust` if you dare!

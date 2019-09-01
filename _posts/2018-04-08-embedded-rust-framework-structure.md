@@ -1,22 +1,22 @@
 ---
 layout: post
-title: "Embedded Rust : Framework structure"
+title: "Embedded Rust: Framework structure"
 categories: embedded-rust
 tags: rust embedded-dev
 date: 2018-04-08 15:12:00 +0100
 series: "Embedded Rust"
 image: /assets/img/rust-logo-256x256.png
 ---
-There are already some embedded rust projects such as [tock-os](https://www.tockos.org) or [zync-rs](https://zinc.rs/). They all (AFAIK) took the path to a monolithic API in that sense that everything is provided as a single (potentially) heavy crate where all ports and their drivers are provided in the same crate.
+There are already some embedded Rust projects such as [tock-os](https://www.tockos.org) or [zync-rs](https://zinc.rs/). They all (AFAIK) took the path to a monolithic API in the sense that they provide everything as a single (potentially) heavy crate that includes all ports and their drivers.
 
-*A single dependency to all your projects* can look appealing, but it has downsides that (*IMHO*) are making it unworthy. It greatly impairs maintainability and slows down the release pace because it makes the crate heavier (in features/targets) :
-- Updating a driver for a single target/family requires a patch bump for the whole framework ;
-- Keeping things consistent when changing an API requires you to update **ALL** drivers which can be a rather tedious task when supporting a wide range or targets ;
+*A single dependency to all your projects* can look appealing, but it has downsides that (*IMHO*) make it unworthy. It greatly impairs maintainability and slows down the release pace because it makes the crate heavier (in features and targets):
+- Updating a driver for a single target or family requires a patch bump for the whole framework;
+- Keeping things consistent when changing an API requires you to update **ALL** drivers, which can be a tedious task when supporting a wide range or targets;
 - It is way too easy to intricate modules' dependencies and end up with a tight knot of internal relations between modules. It goes against the [*KISS principle*](https://en.wikipedia.org/wiki/KISS_principle).
 
 ## Decoupling
 
-Splitting the framework in a *"galaxy"* of light weight crates allows adoption of updates of the main APIs to be propagated in some sort of *waterfall* kind of way. A team responsible of maintaining a certain set of target can use the semantic versioning to only update their release when they are ready. It adds latency between the main API & the target implementation updates but it prevents :
+Splitting the framework in a "galaxy" of lightweight crates allows adoption of updates of the main APIs to be propagated in some sort of *waterfall* way. A team responsible for maintaining a certain set of targets can use semantic versioning to only update the release when it is ready. It adds latency between the main API & the target implementation updates but it prevents :
 - highly demanded features to be stuck until all team do implement it ;
 - code rot of abandoned targets in the framework crates.
 
