@@ -1,5 +1,14 @@
 # Hello - Bonjour !
 
+My name's Wilfried Chauveau. I work [Arm](arm.com) mostly on [@ARMMbed](https://github.com/armmbed/).  
+Opinions are obviously mine and may not reflect the views of my employer.
+
+I have special interest in 🦀 [Rust](https://rust-lang.org) and use it to code on my own time. I am also a 🖨 [3D Printing](thingiverse.com/ithinuel/) hobbyist and an 🛩 aviation ✈ enthousiast.
+
+## Identity
+
+- 🔑 Get my public key : `gpg --recv-keys 0xF1DA07835BA76FA450BBCA2B0BC4C0B2B0879D6A`
+- 🔍 Or check my other social media on https://keybase.io/ithinuel
 
 ## Books
 
