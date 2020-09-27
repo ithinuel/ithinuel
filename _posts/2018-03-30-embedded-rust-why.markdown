@@ -4,7 +4,7 @@ title:  "Embedded Rust: Why ?"
 date:   2018-03-30 09:26:00 +0100
 series: "Embedded Rust"
 categories: embedded-rust
-tags: rust embedded-rust
+tags: rust embedded-dev
 image: /assets/img/rust-logo-256x256.png
 ---
 
