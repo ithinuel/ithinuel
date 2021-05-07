@@ -4,7 +4,7 @@
   "description": "My blog hosted on github-pages.",
   "main": "gulpfile.js",
   "scripts": {
-    "test": "test"
+      "test": "./node_modules/gulp/bin/gulp.js"
   },
   "keywords": [
     "frontend",
@@ -23,6 +23,7 @@
     "grunt": "^1.0.4",
     "gulp": "^4.0.2",
     "gulp-concat": "^2.4.3",
+    "gulp-debug": "^4.0.0",
     "gulp-imagemin": "^6.1.0",
     "gulp-plumber": "^1.2.1",
     "gulp-stylus": "^2.7.0",
@@ -30,8 +31,5 @@
     "jeet": "^6.1.4",
     "kouto-swiss": "ithinuel/kouto-swiss",
     "rupture": "^0.6.1"
-  },
-  "dependencies": {
-    "gulp-debug": "^4.0.0"
   }
 }
