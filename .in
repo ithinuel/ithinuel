@@ -1,0 +1,6 @@
+OLDPATH+=("$PATH")
+export PATH="$(pwd)/node_modules/.bin:$PATH"
+
+if [ ! -z "$(command -v rbenv)" ]; then
+    eval "$(rbenv init -)"
+fi

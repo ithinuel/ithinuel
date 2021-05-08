@@ -3,5 +3,7 @@ _site
 node_modules
 tags
 .jekyll-metadata
+.jekyll-cache
 _drafts
 *.swp
+.ruby-version
