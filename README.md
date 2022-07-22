@@ -1,6 +1,6 @@
 # Hello - Bonjour !
 
-My name's Wilfried Chauveau. I work at [Arm](https://arm.com) mostly on [@ARMmbed](https://github.com/armmbed/).  
+My name's Wilfried Chauveau. I work at [Arm](https://arm.com).  
 Opinions are obviously mine and may not reflect the views of my employer.
 
 I have special interest in 🦀 [Rust](https://rust-lang.org) and use it to code on my own time. I am
