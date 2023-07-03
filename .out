@@ -1,2 +1,3 @@
-export PATH=${OLDPATH[${#OLDPATH}]}
-unset 'OLDPATH[${#OLDPATH}]'
+excl+=("$(pwd)/ithinuel/node_modules/.bin")
+export path=(${path:|excl})
+unset excl

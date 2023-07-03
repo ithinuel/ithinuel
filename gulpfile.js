@@ -1,16 +1,16 @@
-const gulp      = require('gulp'),
-	plumber     = require('gulp-plumber'),
-	gstylus     = require('gulp-stylus'),
-	uglify      = require('gulp-uglify'),
-	concat      = require('gulp-concat'),
-	gimagemin   = require('gulp-imagemin'),
-	server      = require('browser-sync'),
-    // stylus
-	jeet        = require('jeet'),
-	rupture     = require('rupture'),
-	koutoSwiss  = require('kouto-swiss'),
-	prefixer    = require('autoprefixer-stylus'),
-	cp          = require('child_process');
+import gulp from 'gulp';
+import plumber from 'gulp-plumber';
+import gstylus from 'gulp-stylus';
+import uglify from 'gulp-uglify';
+import concat from 'gulp-concat';
+import server from 'browser-sync';
+import gimagemin from 'gulp-imagemin';
+
+import jeet from 'jeet';
+import rupture from 'rupture';
+import koutoSwiss from 'kouto-swiss';
+import prefixer from 'autoprefixer-stylus';
+import cp from 'child_process';
 
 var messages = {
 	jekyllBuild: '<span style="color: grey">Running:</span> $ jekyll build',

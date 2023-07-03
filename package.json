@@ -3,8 +3,9 @@
   "version": "1.0.0",
   "description": "My blog hosted on github-pages.",
   "main": "gulpfile.js",
+  "type": "module",
   "scripts": {
-      "test": "./node_modules/gulp/bin/gulp.js"
+    "test": "./node_modules/gulp/bin/gulp.js"
   },
   "keywords": [
     "frontend",
@@ -15,21 +16,21 @@
     "jekyll",
     "js"
   ],
-  "author": "Victor Igor",
+  "author": "Wilfried Chauveau",
   "license": "ISC",
   "devDependencies": {
-    "autoprefixer-stylus": "^0.4.0",
-    "browser-sync": "^2.26.12",
-    "grunt": "^1.0.4",
-    "gulp": "^4.0.2",
-    "gulp-concat": "^2.4.3",
-    "gulp-debug": "^4.0.0",
-    "gulp-imagemin": "^6.1.0",
+    "autoprefixer-stylus": "^1.0.0",
+    "browser-sync": "^2.29.3",
+    "grunt": "^1.6.1",
+    "gulp": "^4.0.0",
+    "gulp-concat": "^2.6.1",
+    "gulp-debug": "^3.2.0",
+    "gulp-imagemin": "^8.0.0",
     "gulp-plumber": "^1.2.1",
-    "gulp-stylus": "^2.7.0",
+    "gulp-stylus": "^2.0.5",
     "gulp-uglify": "^3.0.2",
-    "jeet": "^6.1.4",
+    "jeet": "^7.2.0",
     "kouto-swiss": "ithinuel/kouto-swiss",
-    "rupture": "^0.6.1"
+    "rupture": "^0.7.1"
   }
 }
