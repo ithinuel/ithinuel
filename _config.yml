@@ -41,6 +41,8 @@ links:
 
 # projects in header index
 projects:
+  - name: wilskeeb
+    url: https://github.com/ithinuel/wilskeeb
   - name: rusty-printer
     url: https://github.com/ithinuel/rusty-printer
   - name: mqttsn-packet
