@@ -4,7 +4,6 @@ import gstylus from 'gulp-stylus';
 import uglify from 'gulp-uglify';
 import concat from 'gulp-concat';
 import server from 'browser-sync';
-import gimagemin from 'gulp-imagemin';
 
 import jeet from 'jeet';
 import rupture from 'rupture';
@@ -71,22 +70,22 @@ gulp.task('js', js);
 /**
  * Imagemin Task
  */
-function imagemin() {
+gulp.task('imagemin', async () => {
+    const gimagemin = (await import('gulp-imagemin')).default;
     server.notify(messages.imagemin)
 	return gulp.src('src/img/**/*.{jpg,png,gif}')
 		.pipe(plumber())
 		.pipe(gimagemin({ optimizationLevel: 3, progressive: true, interlaced: true }))
 		.pipe(gulp.dest('assets/img/'))
 		.pipe(gulp.dest('_site/assets/img/'));
-}
-gulp.task('imagemin', imagemin);
+});
 
 /**
  */
 gulp.task('watch', function () {
 	gulp.watch('src/styl/**/*.styl', gulp.series('stylus'));
 	gulp.watch('src/js/**/*.js', gulp.series('js'));
-	gulp.watch('src/img/**/*.{jpg,png,gif}', imagemin);
+	gulp.watch('src/img/**/*.{jpg,png,gif}', gulp.series('imagemin'));
 	gulp.watch([
         '_config.yml',
         '*.html',

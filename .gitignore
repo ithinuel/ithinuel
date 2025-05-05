@@ -7,3 +7,5 @@ tags
 _drafts
 *.swp
 .ruby-version
+.direnv/
+.pre-commit-config.yaml

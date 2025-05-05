@@ -1,3 +1,0 @@
-excl+=("$(pwd)/ithinuel/node_modules/.bin")
-export path=(${path:|excl})
-unset excl

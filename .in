@@ -1,5 +1,0 @@
-path=("$(pwd)/node_modules/.bin" $path)
-
-if [ ! -z "$(command -v rbenv)" ]; then
-    eval "$(rbenv init -)"
-fi
